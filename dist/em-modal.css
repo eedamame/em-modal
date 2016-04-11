@@ -1,0 +1,111 @@
+/*
+ *  EmModal - v0.1.0
+ *  simple modal window
+ *  http://dev.eedama.me/
+ *
+ *  Made by eedamame
+ *  Under MIT License
+ */
+
+/* =============================================================================
+   modalwindow
+============================================================================= */
+.modal-item {
+  display: none;
+}
+.is-modal-open {
+  overflow: hidden;
+}
+
+/* モーダル表示時の半透明レイヤー
+---------------------------------------------- */
+#layermask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #fff;
+  opacity: 0.95;
+  cursor: pointer;
+  transition: all 150ms;
+}
+.is-modal-loading #layermask {
+  opacity: 0;
+}
+
+/* 表示位置固定用レイヤー
+---------------------------------------------- */
+.modal-wrap {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow: hidden;
+  outline: 0;
+  -webkit-overflow-scrolling: touch;
+  cursor: pointer;
+}
+/* モーダルウィンドウ部分だけカーソルはデフォルトのまま */
+.modal-wrap .modal-content {
+  cursor: default;
+}
+
+/* .modal-wrap
+---------------------------------------------- */
+.is-modal-open .modal-wrap {
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* .modal-window
+---------------------------------------------- */
+.modal-window {
+  position: relative;
+  margin: 30px auto 60px;
+  width: 800px;
+  max-width: 80%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(102, 102, 102, .33);
+  opacity: 1;
+  transition: all 150ms;
+}
+.is-modal-loading .modal-window {
+  opacity: 0;
+}
+.is-over-windowheight .modal-window {
+  /*height: 100%;*/
+  /*max-height: 100%;*/
+}
+
+.modal-content {
+  position: relative;
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+
+/* ----------------------------------------------
+   button
+---------------------------------------------- */
+.btn-modal-close {
+  position: absolute;
+  top: -1em;
+  right: -1em;
+  display: block;
+  padding: 0;
+  width: 3em;
+  height: 3em;
+  border: none;
+  outline: 0;
+  background-color: #ccc;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3em;
+  cursor: pointer;
+}
